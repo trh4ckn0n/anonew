@@ -182,6 +182,24 @@
   10% { opacity: 0.9; }
   100% { opacity: 0; }
 }
+    /* Effet scan horizontal vert fluo */
+.scan-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: rgba(0, 255, 0, 0.3);
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+  animation: scanMove 4s linear infinite;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+@keyframes scanMove {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
 </style>
 </head>
 
@@ -243,7 +261,7 @@
     <p>Nous sommes Anonymous. Nous sommes Légion. Nous n’oublions pas. Nous ne pardonnons pas. Attendez-nous.</p>
   </footer>
 <div class="flash-effect" id="flashEffect"></div>
-
+<div class="scan-line"></div>
   <script>
     function sharePage() {
       const message = "Anonymous dévoile la vérité sur Gaza, Iran, Yémen, Ukraine 🔥 👉 https://anonew.onrender.com #OpWakeUp";
