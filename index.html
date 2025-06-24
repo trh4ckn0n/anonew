@@ -284,6 +284,47 @@ button.telegram:hover {
   transform: scale(1.1);
   box-shadow: 0 0 15px #0f0;
 }
+    .carousel-container {
+  overflow: hidden;
+  width: 100%;
+  background-color: #0a0a0a;
+  border: 2px solid #00ffcc;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #00ffcc88;
+}
+
+.carousel-track {
+  display: flex;
+  animation: scrollLogos 20s linear infinite;
+  gap: 30px;
+}
+
+.carousel-track img {
+  height: 80px;
+  filter: drop-shadow(0 0 6px #00ffcc);
+  transition: transform 0.3s ease;
+}
+
+.carousel-track a:hover img {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px #00ffcc);
+}
+
+@keyframes scrollLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.section-title {
+  color: #00ffcc;
+  text-shadow: 0 0 8px #00ffcc;
+  font-family: 'Courier New', monospace;
+}
 </style>
 </head>
 
@@ -301,20 +342,27 @@ button.telegram:hover {
   <p>Je crois en une résistance numérique libre, décentralisée, accessible à tous. Que ce soit par la création de labs, d'outils de pentest, de campagnes d'information ou d'interventions directes, mon objectif reste le même : utiliser le hacking comme levier de changement et d’émancipation collective.</p>
   <p>trhacknon n’est pas un pseudonyme, c’est une déclaration. Une position. Un appel à la réflexion, à l’action, à la libération.</p>
     
-    <div id="logos-trhacknon">
-    <h3>Mes logos :</h3>
-    <div class="logos-container">
-      <a href="https://github.com/trh4ckn0n/work/raw/refs/heads/main/trhacknon.svg" target="_blank" rel="noopener noreferrer">
-        <img src="https://github.com/trh4ckn0n/work/raw/refs/heads/main/trhacknon.svg" alt="Logo trhacknon" />
-      </a>
-      <a href="https://raw.githubusercontent.com/trh4ckn0n/work/refs/heads/main/trkncat.svg" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/trh4ckn0n/work/refs/heads/main/trkncat.svg" alt="Logo trkncat" />
-      </a>
-      
-      <a href="https://github.com/trh4ckn0n/work/raw/refs/heads/main/trknprett.svg" target="_blank" rel="noopener noreferrer">
-        <img src="https://github.com/trh4ckn0n/work/raw/refs/heads/main/trknprett.svg" alt="Logo trknprett" />
-      </a>
-    </div>
+  <div id="logos-trhacknon">
+<h3 class="section-title">🌐 Mes logos :</h3>
+<div class="carousel-container">
+  <div class="carousel-track">
+    <a href="https://github.com/trh4ckn0n/work/raw/refs/heads/main/trhacknon.svg" target="_blank">
+      <img src="https://github.com/trh4ckn0n/work/raw/refs/heads/main/trhacknon.svg" alt="Logo trhacknon" />
+    </a>
+    <a href="https://raw.githubusercontent.com/trh4ckn0n/work/refs/heads/main/trkncat.svg" target="_blank">
+      <img src="https://raw.githubusercontent.com/trh4ckn0n/work/refs/heads/main/trkncat.svg" alt="Logo trkncat" />
+    </a>
+    <a href="https://github.com/trh4ckn0n/work/raw/refs/heads/main/trknanon.svg" target="_blank">
+      <img src="https://github.com/trh4ckn0n/work/raw/refs/heads/main/trknanon.svg" alt="Logo trknanon" />
+    </a>
+    <a href="https://github.com/trh4ckn0n/work/raw/refs/heads/main/trknfckkkk.svg" target="_blank">
+      <img src="https://github.com/trh4ckn0n/work/raw/refs/heads/main/trknfckkkk.svg" alt="Logo trknfckkkk" />
+    </a>
+    <a href="https://github.com/trh4ckn0n/work/raw/refs/heads/main/trknprett.svg" target="_blank">
+      <img src="https://github.com/trh4ckn0n/work/raw/refs/heads/main/trknprett.svg" alt="Logo trknprett" />
+    </a>
+  </div>
+</div>
   </div>
       </section>
     <section id="actu">
