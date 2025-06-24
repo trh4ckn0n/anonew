@@ -259,7 +259,7 @@ function randomFlash() {
 
   // Flashs aléatoires toutes les 15 à 30 secondes
   function scheduleRandomFlash() {
-    const delay = Math.floor(Math.random() * 15000) + 15000;
+    const delay = Math.floor(Math.random() * 5000) + 10000;
     setTimeout(() => {
       randomFlash();
       scheduleRandomFlash();
