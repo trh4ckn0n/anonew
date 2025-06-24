@@ -228,6 +228,15 @@
   0% { top: 0; }
   100% { top: 100%; }
 }
+    button.telegram {
+  border-color: #0088cc;
+  color: #0088cc;
+}
+
+button.telegram:hover {
+  background-color: #0088cc;
+  color: #fff;
+}
 </style>
 </head>
 
@@ -281,7 +290,7 @@
       <h2>📢 Rejoignez le Mouvement</h2>
       <p>Partagez cette page. Rejoignez le front numérique. Dénoncez. Enquêter c’est résister.</p>
       <button onclick="sharePage()">Partager sur X / Twitter</button>
-      <a class="share-link" href="https://t.me/share/url?url=https://anonew.onrender.com&text=Anonymous%20d%C3%A9voile%20la%20v%C3%A9rit%C3%A9%20sur%20les%20guerres%20%23OpWakeUp" target="_blank">Partager sur Telegram</a>
+      <button class="telegram" onclick="shareTelegram()">Partager sur Telegram</button>
     </section>
   </main>
 
@@ -297,6 +306,8 @@
   window.open(url, "_blank");
 }
 
+<button onclick="shareTelegram()">Partager sur Telegram</button>
+    
 // Flash avec couleur aléatoire
 function randomFlash() {
   const flash = document.getElementById('flashEffect');
