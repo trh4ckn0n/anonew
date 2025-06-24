@@ -260,56 +260,70 @@
   </footer>
 <div class="flash-effect" id="flashEffect"></div>
 <div class="scan-line"></div>
-  <<script>
+  <script>
   function sharePage() {
-    const message = "Anonymous dévoile la vérité sur Gaza, Iran, Yémen, Ukraine 🔥 👉 https://anonew.onrender.com #OpWakeUp";
-    const url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(message);
-    window.open(url, "_blank");
-  }
+  const message = "Anonymous dévoile la vérité sur Gaza, Iran, Yémen, Ukraine 🔥 👉 https://anonew.onrender.com #OpWakeUp";
+  const url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+}
 
-  function randomFlash() {
-    const flash = document.getElementById('flashEffect');
-    flash.style.animation = 'none';
-    flash.offsetHeight; // Force reflow
-    flash.style.animation = 'flashBurst 0.2s ease';
-  }
+// Flash avec couleur aléatoire
+function randomFlash() {
+  const flash = document.getElementById('flashEffect');
+  const colors = [
+    'white',
+    'rgba(0, 255, 0, 0.8)',
+    'rgba(255, 0, 0, 0.8)',
+    'rgba(0, 255, 255, 0.8)',
+    'rgba(255, 255, 0, 0.8)',
+    'rgba(255, 0, 255, 0.8)'
+  ];
+  const i = Math.floor(Math.random() * colors.length);
+  flash.style.backgroundColor = colors[i];
 
-  function scheduleRandomFlash() {
-    const delay = Math.floor(Math.random() * 5000) + 10000;
-    setTimeout(() => {
-      randomFlash();
-      scheduleRandomFlash();
-    }, delay);
-  }
+  flash.style.animation = 'none';
+  flash.offsetHeight; // Force reflow
+  flash.style.animation = 'flashBurst 0.2s ease';
+}
 
-  function randomScanColor() {
-    const scan = document.querySelector('.scan-line');
-    if (!scan) return;
-    const colors = [
-      'rgba(0, 255, 0, 0.3)',
-      'rgba(255, 0, 0, 0.3)',
-      'rgba(0, 255, 255, 0.3)',
-      'rgba(255, 255, 0, 0.3)',
-      'rgba(255, 0, 255, 0.3)'
-    ];
-    const glows = [
-      '0 0 8px rgba(0, 255, 0, 0.5)',
-      '0 0 8px rgba(255, 0, 0, 0.5)',
-      '0 0 8px rgba(0, 255, 255, 0.5)',
-      '0 0 8px rgba(255, 255, 0, 0.5)',
-      '0 0 8px rgba(255, 0, 255, 0.5)'
-    ];
-    const i = Math.floor(Math.random() * colors.length);
-    scan.style.background = colors[i];
-    scan.style.boxShadow = glows[i];
-  }
-
-  // Initialisation
-  window.addEventListener('DOMContentLoaded', () => {
+// Flashs aléatoires toutes les 10 à 15 secondes
+function scheduleRandomFlash() {
+  const delay = Math.floor(Math.random() * 5000) + 10000; // entre 10 et 15 sec
+  setTimeout(() => {
+    randomFlash();
     scheduleRandomFlash();
-    randomScanColor(); // première couleur directe
-    setInterval(randomScanColor, 4000); // changement toutes les 4s
-  });
+  }, delay);
+}
+
+// Barre de scan colorée aléatoire
+function randomScanColor() {
+  const scan = document.querySelector('.scan-line');
+  if (!scan) return;
+  const colors = [
+    'rgba(0, 255, 0, 0.3)',
+    'rgba(255, 0, 0, 0.3)',
+    'rgba(0, 255, 255, 0.3)',
+    'rgba(255, 255, 0, 0.3)',
+    'rgba(255, 0, 255, 0.3)'
+  ];
+  const glows = [
+    '0 0 8px rgba(0, 255, 0, 0.5)',
+    '0 0 8px rgba(255, 0, 0, 0.5)',
+    '0 0 8px rgba(0, 255, 255, 0.5)',
+    '0 0 8px rgba(255, 255, 0, 0.5)',
+    '0 0 8px rgba(255, 0, 255, 0.5)'
+  ];
+  const i = Math.floor(Math.random() * colors.length);
+  scan.style.background = colors[i];
+  scan.style.boxShadow = glows[i];
+}
+
+// Initialisation globale
+window.addEventListener('DOMContentLoaded', () => {
+  scheduleRandomFlash();
+  randomScanColor();
+  setInterval(randomScanColor, 4000);
+});
 </script>
 </body>
 </html>
