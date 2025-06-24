@@ -296,6 +296,14 @@ button.telegram:hover {
 
   <footer>
     <p>Nous sommes Anonymous. Nous sommes Légion. Nous n’oublions pas. Nous ne pardonnons pas. Attendez-nous.</p>
+    <!-- Musique de fond -->
+<audio id="bgAudio" loop preload="auto">
+  <source src="https://your-link.com/music.mp3" type="audio/mp3">
+</audio>
+
+<button id="audioToggle" style="position:fixed; bottom:20px; right:20px; background:#000; color:#0f0; border:2px solid #0f0; font-family:'Share Tech Mono', monospace; z-index:9999; padding:8px 12px; cursor:pointer;">
+  🔈 Play
+</button>
   </footer>
 <div class="flash-effect" id="flashEffect"></div>
 <div class="scan-line"></div>
@@ -361,6 +369,18 @@ window.addEventListener('DOMContentLoaded', () => {
   scheduleRandomFlash();
   randomScanColor();
   setInterval(randomScanColor, 4000);
+});
+    // Bouton play/pause musique
+document.getElementById('audioToggle').addEventListener('click', function () {
+  const audio = document.getElementById('bgAudio');
+  if (audio.paused) {
+    audio.volume = 0.5;
+    audio.play();
+    this.textContent = '🔊 Pause';
+  } else {
+    audio.pause();
+    this.textContent = '🔈 Play';
+  }
 });
 </script>
 </body>
