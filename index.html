@@ -162,6 +162,26 @@
     font-size: 0.9rem;
     letter-spacing: 1px;
   }
+    /* EFFET DE FLASH */
+.flash-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: white;
+  opacity: 0;
+  z-index: 10000;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  animation: none;
+}
+
+@keyframes flashBurst {
+  0% { opacity: 0; }
+  10% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
 </style>
 </head>
 
@@ -222,6 +242,7 @@
   <footer>
     <p>Nous sommes Anonymous. Nous sommes Légion. Nous n’oublions pas. Nous ne pardonnons pas. Attendez-nous.</p>
   </footer>
+<div class="flash-effect" id="flashEffect"></div>
 
   <script>
     function sharePage() {
@@ -229,6 +250,23 @@
       const url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(message);
       window.open(url, "_blank");
     }
-  </script>
+function randomFlash() {
+    const flash = document.getElementById('flashEffect');
+    flash.style.animation = 'none';
+    flash.offsetHeight; // Force reflow
+    flash.style.animation = 'flashBurst 0.2s ease';
+  }
+
+  // Flashs aléatoires toutes les 15 à 30 secondes
+  function scheduleRandomFlash() {
+    const delay = Math.floor(Math.random() * 15000) + 15000;
+    setTimeout(() => {
+      randomFlash();
+      scheduleRandomFlash();
+    }, delay);
+  }
+
+  window.addEventListener('DOMContentLoaded', scheduleRandomFlash);
+</script>
 </body>
 </html>
